@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtpog51ar81rm"
-path="res://.godot/imported/survivalgame-terrian-water.png-d732e5558d2125ad6e434d24f7ba6e6a.ctex"
+uid="uid://dj7qlrgoy6n30"
+path="res://.godot/imported/survivalgame-appletree.png-6ddf6c12bd0682ee84a9aa5ac05efd3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/environment/survivalgame-terrian-water.png"
-dest_files=["res://.godot/imported/survivalgame-terrian-water.png-d732e5558d2125ad6e434d24f7ba6e6a.ctex"]
+source_file="res://art/environment/survivalgame-appletree.png"
+dest_files=["res://.godot/imported/survivalgame-appletree.png-6ddf6c12bd0682ee84a9aa5ac05efd3c.ctex"]
 
 [params]
 

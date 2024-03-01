@@ -1,0 +1,4 @@
+res://scenes/world.tscn
+res://scenes/player.tscn
+res://script/apple_tree.gd
+res://scenes/apple_tree.tscn
