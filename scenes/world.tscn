@@ -275,5 +275,5 @@ layer_2/tile_data = PackedInt32Array(-196610, 1114114, 2, -262142, 1114114, 0, 3
 [node name="apple_tree" parent="." instance=ExtResource("6_sfbg3")]
 position = Vector2(110, 97)
 
-[node name="apple_tree" parent="apple_tree" instance=ExtResource("6_sfbg3")]
-position = Vector2(133, -43)
+[node name="apple_tree2" parent="." instance=ExtResource("6_sfbg3")]
+position = Vector2(268, 131)

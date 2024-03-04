@@ -1,7 +1,9 @@
-[gd_scene load_steps=61 format=3 uid="uid://dh3p83wylblda"]
+[gd_scene load_steps=63 format=3 uid="uid://dh3p83wylblda"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_8qkb7"]
 [ext_resource type="Texture2D" uid="uid://j6dy33civ3lo" path="res://art/character/survivalgame-player-green.png" id="2_bu7t0"]
+[ext_resource type="Resource" uid="uid://btm5g5bosoroa" path="res://inventory/player_inv.tres" id="2_tjqtd"]
+[ext_resource type="PackedScene" uid="uid://cflcegc42al4y" path="res://inventory/inv_ui.tscn" id="4_mp6eb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68dxs"]
 atlas = ExtResource("2_bu7t0")
@@ -493,6 +495,7 @@ radius = 4.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_8qkb7")
+inv = ExtResource("2_tjqtd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7esoh")
@@ -510,3 +513,9 @@ limit_left = -440
 limit_top = -360
 limit_right = 440
 limit_bottom = 360
+
+[node name="Inv_UI" parent="." instance=ExtResource("4_mp6eb")]
+offset_left = -42.0
+offset_top = -80.0
+offset_right = 42.0
+offset_bottom = -16.0

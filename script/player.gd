@@ -5,6 +5,8 @@ var speed = 100
 @onready var anim = $AnimatedSprite2D
 var player_state
 
+@export var inv: Inv
+
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	

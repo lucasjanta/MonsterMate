@@ -1,4 +1,9 @@
-res://scenes/world.tscn
+res://inventory/inv_ui.tscn
+res://inventory/player_inv.tres
 res://scenes/player.tscn
-res://script/apple_tree.gd
+res://scenes/world.tscn
 res://scenes/apple_tree.tscn
+res://scenes/apple_collactable.tscn
+res://inventory/inv_ui_slot.tscn
+res://inventory/inv_ui.gd
+res://inventory/inv_ui_slot.gd

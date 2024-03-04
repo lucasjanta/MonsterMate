@@ -1,6 +1,14 @@
+Panel
+CenterContainer
+Sprite2D
+GridContainer
+GridMap
+NinePatchRect
+ColorRect
+Control
+AnimationPlayer
+AnimatedSprite2D
+StaticBody2D
 Marker2D
 Timer
 CollisionShape2D
-Area2D
-AnimatedSprite2D
-Camera2D
