@@ -1,9 +1,10 @@
+CollisionShape2D
+StaticBody2D
+CollisionPolygon2D
 Marker2D
 VisibleOnScreenEnabler2D
-CollisionShape2D
 Sprite2D
 Area2D
-StaticBody2D
 Label
 Panel
 CenterContainer
@@ -11,5 +12,3 @@ GridContainer
 GridMap
 NinePatchRect
 ColorRect
-Control
-AnimationPlayer
