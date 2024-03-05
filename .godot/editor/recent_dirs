@@ -1,7 +1,7 @@
-res://inventory
-res://art/character
+res://script
+res://
+res://scenes
 res://inventory/items
 res://art/environment
-res://script
-res://scenes
-res://
+res://inventory
+res://art/character

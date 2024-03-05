@@ -1,8 +1,56 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=3 format=3 uid="uid://btm5g5bosoroa"]
+[gd_resource type="Resource" script_class="Inv" load_steps=15 format=3 uid="uid://btm5g5bosoroa"]
 
-[ext_resource type="Resource" uid="uid://08iiyih7btp4" path="res://inventory/items/apple.tres" id="1_1upel"]
+[ext_resource type="Script" path="res://Inv_slot.gd" id="2_got1c"]
 [ext_resource type="Script" path="res://inventory/inventory.gd" id="2_vf6dd"]
+
+[sub_resource type="Resource" id="Resource_rvt4v"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_ylgup"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_hala6"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_gstmg"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_3pk2m"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_48skv"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_3k7co"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_7ibnl"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_ocpe2"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_y1lwa"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_cmjll"]
+script = ExtResource("2_got1c")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_80p5k"]
+script = ExtResource("2_got1c")
+amount = 0
 
 [resource]
 script = ExtResource("2_vf6dd")
-items = Array[Resource("res://inventory/inventory_item.gd")]([null, null, ExtResource("1_1upel"), null, null, null, ExtResource("1_1upel"), ExtResource("1_1upel"), null, null, null, null])
+slots = Array[ExtResource("2_got1c")]([SubResource("Resource_rvt4v"), SubResource("Resource_ylgup"), SubResource("Resource_hala6"), SubResource("Resource_gstmg"), SubResource("Resource_3pk2m"), SubResource("Resource_48skv"), SubResource("Resource_3k7co"), SubResource("Resource_7ibnl"), SubResource("Resource_ocpe2"), SubResource("Resource_y1lwa"), SubResource("Resource_cmjll"), SubResource("Resource_80p5k")])
