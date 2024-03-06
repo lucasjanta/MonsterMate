@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 var speed = 100
 
 @onready var anim = $AnimatedSprite2D
@@ -90,6 +90,7 @@ func play_anim(dir):
 			anim.play("nw-attack")
 func player():
 	pass
+
 func collect(item):
 	inv.insert(item)
 

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlgk6hxwni1ac"]
+
+[ext_resource type="Script" path="res://script/slime_collectable.gd" id="1_6bneg"]
+[ext_resource type="Texture2D" uid="uid://dcpjat6lt3vhh" path="res://art/environment/SlimeIcon.png" id="1_pgini"]
+[ext_resource type="Resource" uid="uid://hflaopnh261v" path="res://inventory/items/slime.tres" id="2_77bd3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jevkd"]
+radius = 12.0416
+
+[node name="slime_collectable" type="StaticBody2D"]
+script = ExtResource("1_6bneg")
+item = ExtResource("2_77bd3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pgini")
+
+[node name="interactable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable_area"]
+shape = SubResource("CircleShape2D_jevkd")
+
+[connection signal="body_entered" from="interactable_area" to="." method="_on_interactable_area_body_entered"]

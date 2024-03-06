@@ -1,2 +1,3 @@
+enemyResource
 InvItem
 Inv

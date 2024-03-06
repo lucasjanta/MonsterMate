@@ -26,12 +26,12 @@ func _process(delta):
 
 
 func _on_pickable_area_body_entered(body):
-	if body.has_method("player"):
+	if body is Player:
 		player_in_area = true
 		player = body
 
 func _on_pickable_area_body_exited(body):
-	if body.has_method("player"):
+	if body is Player:
 		player_in_area = false
 
 

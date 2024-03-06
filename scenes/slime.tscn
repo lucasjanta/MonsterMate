@@ -179,5 +179,6 @@ shape = SubResource("CircleShape2D_4l6nd")
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_a78aa")
 
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
