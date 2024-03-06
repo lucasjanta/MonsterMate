@@ -1,10 +1,11 @@
-res://scenes/player.tscn
-res://inventory/player_inv.tres
+res://scenes/stick_collectable.tscn
 res://script/apple_tree.gd
-res://script/player.gd
+res://inventory/player_inv.tres
+res://script/slime.gd
 res://scenes/world.tscn
+res://scenes/player.tscn
 res://scenes/apple_tree.tscn
 res://scenes/apple_collactable.tscn
 res://inventory/inv_ui.tscn
-res://scenes/stick_collectable.tscn
 res://scenes/arrow.tscn
+res://scenes/slime.tscn
