@@ -4,3 +4,6 @@
 
 [resource]
 script = ExtResource("1_bkygt")
+health = 100
+speed = 75
+attack_damage = 20

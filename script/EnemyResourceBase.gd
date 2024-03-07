@@ -4,8 +4,8 @@ class_name enemyResource
 
 @export var texture : Texture
 @export var health : int
-@export var attack_damage : int
 @export var speed : int
+@export var attack_damage : int
 var dead
 
 func take_damage(damage):

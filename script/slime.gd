@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
+@export var enemyRes : enemyResource
 
-var speed = 75
-var health = 100
-
+var speed : int
+var health : int
+var attack_dmg : int
 var dead
 var player_in_area = false
 var player
@@ -11,6 +12,9 @@ var player
 var slime_loot = preload("res://scenes/slime_collectable.tscn")
 
 func _ready():
+	speed = enemyRes.speed
+	health = enemyRes.health
+	attack_dmg = enemyRes.attack_damage
 	dead = false
 	
 func _physics_process(delta):
@@ -38,13 +42,14 @@ func _on_detection_area_body_exited(body):
 
 
 func _on_hitbox_area_entered(area):
-	var damage 
-	if area.has_method("arrow_deal_damage"):
-		damage = 50
-		take_damage(damage)
+	pass
+	#var damage 
+	#if area.has_method("arrow_deal_damage"):
+		#damage = 50
+		#take_damage(damage)
 
-func take_damage(damage):
-	health = health - damage
+func take_damage(attack: Attack):
+	health -= attack.attack_damage
 	if health <= 0 and !dead:
 		death()
 		
@@ -60,3 +65,14 @@ func drop_item():
 	dropped_item.global_position = global_position
 	get_parent().add_child(dropped_item)
 #	
+
+# EU CRIEI O DANO NO PLAYER AQUI
+func _on_hitbox_body_entered(body):
+	if body is Player:
+		damage_player(body)
+		body.position.x = body.position.x - 40
+		move_and_slide()
+	
+func damage_player(player):
+	player.health -= attack_dmg
+	pass

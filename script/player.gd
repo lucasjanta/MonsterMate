@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player
 var speed = 100
+var health = 100
 
 @onready var anim = $AnimatedSprite2D
 var player_state
@@ -14,6 +15,8 @@ var arrow = preload("res://scenes/arrow.tscn")
 var mouse_loc_from_player = null
 
 func _physics_process(delta):
+	if health <= 0:
+		queue_free()
 	mouse_loc_from_player = get_global_mouse_position() - self.position
 	#print(mouse_loc_from_player)
 	
@@ -93,4 +96,5 @@ func player():
 
 func collect(item):
 	inv.insert(item)
+
 
