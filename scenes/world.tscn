@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=3 uid="uid://w6fw5xxs81b2"]
+[gd_scene load_steps=15 format=3 uid="uid://w6fw5xxs81b2"]
 
-[ext_resource type="PackedScene" uid="uid://dh3p83wylblda" path="res://scenes/player.tscn" id="1_4kb36"]
 [ext_resource type="Texture2D" uid="uid://c41etdra85swp" path="res://art/environment/survivalgame-terrain-default.png" id="2_7dla6"]
 [ext_resource type="Texture2D" uid="uid://cf0jvabtox23o" path="res://art/environment/survivalgame-terrain-cliffs.png" id="3_uq3kh"]
 [ext_resource type="Texture2D" uid="uid://cg33g47alqt3e" path="res://art/environment/survivalgame-trees.png" id="4_u1eum"]
@@ -8,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cyrerc0ksy4hf" path="res://scenes/stick_collectable.tscn" id="6_gcjx5"]
 [ext_resource type="PackedScene" uid="uid://fkn26vqe1b6x" path="res://scenes/apple_tree.tscn" id="6_sfbg3"]
 [ext_resource type="PackedScene" uid="uid://6ubwcvxuc0l8" path="res://scenes/slime.tscn" id="8_180pl"]
+[ext_resource type="PackedScene" uid="uid://b3bkfohbvicvt" path="res://weapons/sword/fire_sword.tscn" id="9_c12uq"]
+[ext_resource type="PackedScene" uid="uid://qbqdgk3nq7jp" path="res://scenes/player_engineer.tscn" id="9_nqgwj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_neddb"]
 texture = ExtResource("2_7dla6")
@@ -755,8 +756,6 @@ position = Vector2(371, 140)
 [node name="stick_collectable3" parent="." instance=ExtResource("6_gcjx5")]
 position = Vector2(23, 93)
 
-[node name="player" parent="." instance=ExtResource("1_4kb36")]
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -767,3 +766,8 @@ position = Vector2(174, 91)
 
 [node name="slime2" parent="." instance=ExtResource("8_180pl")]
 position = Vector2(283, -55)
+
+[node name="fireSword" parent="." instance=ExtResource("9_c12uq")]
+position = Vector2(31, 19)
+
+[node name="playerEngineer" parent="." instance=ExtResource("9_nqgwj")]

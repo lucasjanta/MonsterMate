@@ -1,0 +1,172 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3bkfohbvicvt"]
+
+[ext_resource type="Script" path="res://weapons/sword/fireSword.gd" id="1_vqjqq"]
+[ext_resource type="Resource" uid="uid://bwxxc6587xuyu" path="res://weapons/sword/fireWeapon.tres" id="2_2stjv"]
+[ext_resource type="Texture2D" uid="uid://dr2vjniyx1dco" path="res://weapons/sword/Iicon_32_22.png" id="2_axods"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxnwy"]
+size = Vector2(6, 25)
+
+[sub_resource type="Animation" id="Animation_v36d5"]
+resource_name = "attack_up_to_right"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_7kkqf"]
+resource_name = "attack_right_to_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5708, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xllrm"]
+resource_name = "attack_right_to_down"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5708, 3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_y5ucl"]
+resource_name = "attack_down_to_left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.14159, 4.71239]
+}
+
+[sub_resource type="Animation" id="Animation_4l4ut"]
+resource_name = "attack_down_to_right"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.14159, 1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_duwmn"]
+resource_name = "attack_left_to_down"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4.71239, 3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_lcrpt"]
+resource_name = "attack_left_to_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4.71239, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_chrlv"]
+resource_name = "attack_up_to_left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbbah"]
+_data = {
+"attack_down_to_left": SubResource("Animation_y5ucl"),
+"attack_down_to_right": SubResource("Animation_4l4ut"),
+"attack_left_to_down": SubResource("Animation_duwmn"),
+"attack_left_to_up": SubResource("Animation_lcrpt"),
+"attack_right_to_down": SubResource("Animation_xllrm"),
+"attack_right_to_up": SubResource("Animation_7kkqf"),
+"attack_up_to_left": SubResource("Animation_chrlv"),
+"attack_up_to_right": SubResource("Animation_v36d5")
+}
+
+[node name="fireSword" type="Node2D"]
+rotation = -1.5708
+script = ExtResource("1_vqjqq")
+weapon = ExtResource("2_2stjv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -17)
+rotation = -0.785398
+texture = ExtResource("2_axods")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -24.5)
+shape = SubResource("RectangleShape2D_bxnwy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wbbah")
+}
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

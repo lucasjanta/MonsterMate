@@ -1,3 +1,4 @@
+Weapons
 enemyResource
 InvItem
 Inv

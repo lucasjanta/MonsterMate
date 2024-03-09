@@ -52,6 +52,7 @@ func take_damage(attack: Attack):
 	health -= attack.attack_damage
 	if health <= 0 and !dead:
 		death()
+	velocity = (global_position - attack.attack_position).normalized()*attack.knockback_force
 		
 func death():
 	dead = true
