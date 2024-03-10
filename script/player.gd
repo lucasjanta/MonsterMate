@@ -25,6 +25,7 @@ func _physics_process(delta):
 	if health <= 0:
 		queue_free()
 	mouse_loc_from_player = get_global_mouse_position() - self.position
+	
 	#print(mouse_loc_from_player)
 	
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -48,9 +49,7 @@ func _physics_process(delta):
 	
 	var mouse_pos = get_global_mouse_position()
 	$Marker2D.look_at(mouse_pos)
-	
-	
-	#weapon_instance.rotation = $Marker2D.rotation
+	weapon_instance.rotation = $Marker2D.rotation
 		
 	
 	if Input.is_action_just_pressed("left_mouse") and bow_equipped and bow_cooldown:
@@ -70,34 +69,45 @@ func _physics_process(delta):
 func play_anim(dir):
 	var quarenta_cinco_graus = 0.7875
 	var noventa_graus = quarenta_cinco_graus * 2
-	if isEquipped and !isAttacking:
-		if dir.x == 1 and dir.y == 0:
-			#var weapon = Weapons.new()
-			weapon_instance.rotation = quarenta_cinco_graus 
-		if dir.x == -1 and dir.y == 0:
-			weapon_instance.rotation = quarenta_cinco_graus * 5
-		if dir.x == 0 and dir.y == -1:
-			weapon_instance.rotation = quarenta_cinco_graus * 7
-		if dir.x == 0 and dir.y == 1:
-			weapon_instance.rotation = quarenta_cinco_graus * 3
-	if isEquipped and !isAttacking and weapon_instance.side == 1:
-		if dir.x == 1 and dir.y == 0:
-			weapon_instance.rotation = quarenta_cinco_graus * 3
-		if dir.x == -1 and dir.y == 0:
-			weapon_instance.rotation = quarenta_cinco_graus * 7
-		if dir.x == 0 and dir.y == -1:
-			weapon_instance.rotation = quarenta_cinco_graus * 9
-		if dir.x == 0 and dir.y == 1:
-			weapon_instance.rotation = quarenta_cinco_graus * 5
+	#if isEquipped:
+		#if dir.x > 0: 
+			#weapon_instance.rotation = 0 
+			#if dir.y < 0:
+				#weapon_instance.rotation = -quarenta_cinco_graus
+			#if dir.y > 0:
+				#weapon_instance.rotation = quarenta_cinco_graus
+		#if dir.x < 0:
+			#weapon_instance.rotation = noventa_graus * 2 
+			#if dir.y < 0:
+				#weapon_instance.rotation = -noventa_graus -quarenta_cinco_graus
+			#if dir.y > 0:
+				#weapon_instance.rotation = noventa_graus * 2 - quarenta_cinco_graus
+		#if dir.y == 1:
+			#weapon_instance.rotation = noventa_graus + quarenta_cinco_graus
+		#if dir.x > 0 and dir.y > 0:
+			#weapon_instance.rotation = quarenta_cinco_graus * 5
+		#if dir.x == 0 and dir.y == -1:
+			#weapon_instance.rotation = quarenta_cinco_graus * 7
+		#if dir.x == 0 and dir.y == 1:
+			#weapon_instance.rotation = quarenta_cinco_graus * 3
+	#if isEquipped and !isAttacking:
+		#if dir.x == 1 and dir.y == 0:
+			#weapon_instance.rotation = quarenta_cinco_graus * 3
+		#if dir.x == -1 and dir.y == 0:
+			#weapon_instance.rotation = quarenta_cinco_graus * 7
+		#if dir.x == 0 and dir.y == -1:
+			#weapon_instance.rotation = quarenta_cinco_graus * 9
+		#if dir.x == 0 and dir.y == 1:
+			#weapon_instance.rotation = quarenta_cinco_graus * 5
 	
-		if dir.x > 0.5 and dir.y < -0.5:
-			weapon_instance.rotation = 0
-		if dir.x > 0.5 and dir.y > 0.5:
-			weapon_instance.rotation = quarenta_cinco_graus * 2
-		if dir.x < -0.5 and dir.y < -0.5:
-			weapon_instance.rotation = quarenta_cinco_graus * 6
-		if dir.x < -0.5 and dir.y > 0.5:
-			weapon_instance.rotation = quarenta_cinco_graus * 4
+		#if dir.x > 0.5 and dir.y < -0.5:
+			#weapon_instance.rotation = 0
+		#if dir.x > 0.5 and dir.y > 0.5:
+			#weapon_instance.rotation = quarenta_cinco_graus * 2
+		#if dir.x < -0.5 and dir.y < -0.5:
+			#weapon_instance.rotation = quarenta_cinco_graus * 6
+		#if dir.x < -0.5 and dir.y > 0.5:
+			#weapon_instance.rotation = quarenta_cinco_graus * 4
 		
 			
 	if !bow_equipped:

@@ -4,22 +4,46 @@ extends Node2D
 var atk_damage : float
 var knockback_force : float
 var side = 1
-var quarenta_cinco_graus = 0.7875
-var noventa_graus = quarenta_cinco_graus * 2
-@onready var sprite = $Sprite2D
+var isAttacking = false
+var isCharging = false
+var attackTime := 0.3
+var attackForce : float = 5.5
+@onready var sprite = $sword/Sprite2D
 @onready var anim = $AnimationPlayer
+@onready var sword = $sword
+@onready var collision = $sword/CollisionShape2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_weapon()
-
+	collision.disabled = true
+#
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("left_mouse"):
+		isCharging = true
+	if Input.is_action_just_released("left_mouse"):
+		isCharging = false
+		isAttacking = true
 		left_attack()
+		
+		
+	if isCharging:
+			attackForce += 5 * delta
+			print(attackForce)
+	if isAttacking and side == 1:
+		anim.play("attack_up_to_right")
+		if anim.is_playing():
+			collision.disabled = false
+	if isAttacking and side == -1:
+		anim.play("attack_right_to_up")
+		if anim.is_playing():
+			collision.disabled = false
+		#sword.rotate(attackForce * delta)
 	
-	
+	if !isAttacking:
+		collision.disabled = true
 
 func load_weapon():
 	atk_damage = weapon.atk_damage
@@ -47,9 +71,12 @@ func _on_hitbox_body_entered(body):
 		print("oi")
 
 func left_attack():
+	side = -side
 	
-	if side > 0:
-		anim.play("attack_up_to_right")
-	if side < 0:
-		anim.play("attack_right_to_left")
-	side = side * -1
+	await get_tree().create_timer(attackTime).timeout
+	isAttacking = false
+	attackForce = 5.5
+	
+func animate(attack_direction: Vector2, direction: Vector2) -> void:
+	look_at(direction)
+	print(direction)

@@ -1,12 +1,7 @@
 res://scenes/world.tscn
 res://script/apple_tree.gd
 res://inventory/player_inv.tres
-res://script/player.gd
-res://scenes/player.tscn
-res://scenes/arrow.tscn
-res://scenes/slime.tscn
-res://scenes/slime_collectable.tscn
-res://scenes/player_engineer.tscn
 res://weapons/sword/fire_sword.tscn
+res://scenes/player_engineer.tscn
+res://scenes/player.tscn
 res://weapons/sword/fireSword.gd
-res://weapons/weapons.gd
