@@ -17,7 +17,6 @@ var attackForce : float = 5.5
 func _ready():
 	load_weapon()
 	collision.disabled = true
-#
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,11 +31,11 @@ func _process(delta):
 	if isCharging:
 			attackForce += 5 * delta
 			print(attackForce)
-	if isAttacking and side == 1:
+	if isAttacking and side == -1:
 		anim.play("attack_up_to_right")
 		if anim.is_playing():
 			collision.disabled = false
-	if isAttacking and side == -1:
+	if isAttacking and side == 1:
 		anim.play("attack_right_to_up")
 		if anim.is_playing():
 			collision.disabled = false

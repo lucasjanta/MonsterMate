@@ -75,8 +75,10 @@ script = ExtResource("1_vqjqq")
 weapon = ExtResource("2_2stjv")
 
 [node name="sword" type="Area2D" parent="."]
+rotation = 3.14159
 
 [node name="Sprite2D" type="Sprite2D" parent="sword"]
+self_modulate = Color(0.870588, 0, 0, 1)
 position = Vector2(-1, -17)
 rotation = -0.785398
 texture = ExtResource("2_axods")

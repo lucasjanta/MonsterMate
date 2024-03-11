@@ -1,6 +1,6 @@
 extends Node2D
 
-var attack_damage := 50.0
+var attack_damage := 10.0
 var speed = 200
 var direction: Vector2 = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.

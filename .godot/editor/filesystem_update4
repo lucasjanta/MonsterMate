@@ -1,11 +1,13 @@
 res://scenes/world.tscn
 res://script/apple_tree.gd
 res://inventory/player_inv.tres
-res://wood_arrow.gd
 res://scenes/player_engineer.tscn
 res://scenes/player.tscn
 res://weapons/sword/fire_sword.tscn
 res://weapons/bow/air_bow.tscn
 res://weapons/bow/wood_arrow.tscn
-res://weapons/bow/air_bow.gd
 res://scenes/arrow.tscn
+res://weapons/sword/fireWeapon.tres
+res://weapons/bow/air_bow.gd
+res://wood_arrow.gd
+res://weapons/sword/fireSword.gd

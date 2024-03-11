@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhyw8ubg62cw1"]
+[gd_scene load_steps=16 format=3 uid="uid://dhyw8ubg62cw1"]
 
 [ext_resource type="Script" path="res://weapons/bow/air_bow.gd" id="1_4dow3"]
 [ext_resource type="Resource" uid="uid://jbcegprdha1w" path="res://weapons/bow/air_bow.tres" id="2_qjep0"]
@@ -48,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aqgsy")
 }],
-"loop": true,
+"loop": false,
 "name": &"bow_pull",
 "speed": 8.0
 }, {
@@ -59,10 +59,103 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_17g3y")
 }],
-"loop": true,
+"loop": false,
 "name": &"bow_release",
-"speed": 6.0
+"speed": 8.0
 }]
+
+[sub_resource type="Animation" id="Animation_i54jc"]
+resource_name = "arrow_pull"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(11, 0.5), Vector2(5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jxvyt"]
+resource_name = "arrow_steady"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_51tcb"]
+resource_name = "arrow_reload"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0.5), Vector2(11, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5708, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7wrxv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0j2t"]
+_data = {
+"RESET": SubResource("Animation_7wrxv"),
+"arrow_pull": SubResource("Animation_i54jc"),
+"arrow_reload": SubResource("Animation_51tcb"),
+"arrow_steady": SubResource("Animation_jxvyt")
+}
 
 [node name="air_bow" type="Node2D"]
 script = ExtResource("1_4dow3")
@@ -75,3 +168,17 @@ animation = &"bow_pull"
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(11, 0)
+
+[node name="arrow_visual" type="Sprite2D" parent="."]
+position = Vector2(11, 0.5)
+rotation = -1.5708
+texture = ExtResource("3_ih56w")
+hframes = 3
+vframes = 3
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="arrow_visual"]
+libraries = {
+"": SubResource("AnimationLibrary_b0j2t")
+}
+autoplay = "arrow_reload"
