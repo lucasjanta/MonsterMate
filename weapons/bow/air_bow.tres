@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapons" load_steps=2 format=3 uid="uid://jbcegprdha1w"]
+
+[ext_resource type="Script" path="res://weapons/weapons.gd" id="1_7rq3e"]
+
+[resource]
+script = ExtResource("1_7rq3e")
+name = &"Air Bow"
+weapon_rotation_force = 0.0
+position = Vector2(0, 0)
+atk_rotation = Vector2(0, 0)
+scale = Vector2(0, 0)
+atk_damage = 15.0
+knockback_force = 5.0

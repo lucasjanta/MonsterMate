@@ -3,10 +3,10 @@ extends Node2D
 @export var weapon : Weapons
 var atk_damage : float
 var knockback_force : float
-var side = 1
+var side = -1
 var isAttacking = false
 var isCharging = false
-var attackTime := 0.3
+var attackTime := 0.25
 var attackForce : float = 5.5
 @onready var sprite = $sword/Sprite2D
 @onready var anim = $AnimationPlayer
@@ -53,14 +53,6 @@ func load_weapon():
 	#scale.x = weapon.size
 func damage():
 	pass
-	
-	
-
-
-func _on_hitbox_area_entered(area):
-	if area.has_method("take_damage"):
-		print("oi")
-
 
 func _on_hitbox_body_entered(body):
 	if body.has_method("take_damage"):

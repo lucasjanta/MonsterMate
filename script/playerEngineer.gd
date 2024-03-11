@@ -4,17 +4,17 @@ class_name Player
 @export var inv: Inv
 @export var speed = 100
 @export var health = 100
-#@export var fireWeapon = Node2D
 @onready var anim = $AnimatedSprite2D
 
 var player_state
 var last_state
-var normalizeRotation = 57.14
+#var normalizeRotation = 57.14
 
 var equipped_weapon : String = "none"
 var isEquipped = false
 var isAttacking = false
 @onready var fire_weapon = preload("res://weapons/sword/fire_sword.tscn")
+@onready var air_weapon = preload("res://weapons/bow/air_bow.tscn")
 var weapon_instance
 
 var mouse_loc_from_player = null
@@ -54,18 +54,6 @@ func get_mouse_position() -> Vector2:
 	return get_global_mouse_position()
 
 func play_anim(dir):
-	
-	var quarenta_cinco_graus = 0.7875
-	var noventa_graus = quarenta_cinco_graus * 2
-	if isEquipped:
-		if get_direction().x  > 0:
-			#função para colocar a rotação da arma para 90 graus 🔵🔵🔵
-			#weapon_instance.rotation = 90 / normalizeRotation
-			 # rotation da arma em graus 🟢
-			print("funciona?")
-		else:
-			print("funciona sim")
-
 	speed = 100
 	if player_state == "idle":
 		if last_state == "up":
@@ -90,15 +78,6 @@ func play_anim(dir):
 			anim.play("walk_left")
 			last_state = "left"
 			
-			#if dir.x > 0.5 and dir.y < -0.5:
-				#anim.play("ne-walk")
-			#if dir.x > 0.5 and dir.y > 0.5:
-				#anim.play("se-walk")
-			#if dir.x < -0.5 and dir.y < -0.5:
-				#anim.play("nw-walk")
-			#if dir.x < -0.5 and dir.y > 0.5:
-				#anim.play("sw-walk")
-
 func player():
 	pass
 
@@ -107,6 +86,8 @@ func collect(item):
 	
 func equip_weapon(choosen_weapon):
 	if choosen_weapon == "fire" and equipped_weapon != "fire":
+		if weapon_instance != null:
+			weapon_instance.queue_free()
 		print("fire weapon equipped")
 		equipped_weapon = "fire"
 		isEquipped = true
@@ -131,9 +112,15 @@ func equip_weapon(choosen_weapon):
 		isEquipped = false
 	if choosen_weapon == "air" and equipped_weapon != "air":
 		print("air weapon equipped")
+		if weapon_instance != null:
+			weapon_instance.queue_free()
 		equipped_weapon = "air"
 		isEquipped = true
+		weapon_instance = air_weapon.instantiate()
+		add_child(weapon_instance)
 	elif choosen_weapon == "air" and equipped_weapon == "air":
 		print("air weapon unequipped")
 		equipped_weapon = "none"
 		isEquipped = false
+		if weapon_instance != null:
+			weapon_instance.queue_free()

@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhyw8ubg62cw1"]
+
+[ext_resource type="Script" path="res://weapons/bow/air_bow.gd" id="1_4dow3"]
+[ext_resource type="Resource" uid="uid://jbcegprdha1w" path="res://weapons/bow/air_bow.tres" id="2_qjep0"]
+[ext_resource type="Texture2D" uid="uid://fl2qkadww6p1" path="res://weapons/bow/Bow and Arrows.png" id="3_ih56w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejnmp"]
+atlas = ExtResource("3_ih56w")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihkuj"]
+atlas = ExtResource("3_ih56w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofqyb"]
+atlas = ExtResource("3_ih56w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqgsy"]
+atlas = ExtResource("3_ih56w")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvj4h"]
+atlas = ExtResource("3_ih56w")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17g3y"]
+atlas = ExtResource("3_ih56w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d86v3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejnmp")
+}],
+"loop": true,
+"name": &"bow_hold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihkuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofqyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqgsy")
+}],
+"loop": true,
+"name": &"bow_pull",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvj4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17g3y")
+}],
+"loop": true,
+"name": &"bow_release",
+"speed": 6.0
+}]
+
+[node name="air_bow" type="Node2D"]
+script = ExtResource("1_4dow3")
+weapon = ExtResource("2_qjep0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, 0)
+sprite_frames = SubResource("SpriteFrames_d86v3")
+animation = &"bow_pull"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(11, 0)

@@ -1,4 +1,6 @@
 res://
+res://weapons/bow
+res://inventory
 res://weapons/sword
 res://art/character/character2/walk
 res://art/character/character2
@@ -8,4 +10,3 @@ res://enemies
 res://inventory/items
 res://script
 res://art/environment
-res://inventory

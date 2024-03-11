@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3bkfohbvicvt"]
+[gd_scene load_steps=8 format=3 uid="uid://b3bkfohbvicvt"]
 
 [ext_resource type="Script" path="res://weapons/sword/fireSword.gd" id="1_vqjqq"]
 [ext_resource type="Resource" uid="uid://bwxxc6587xuyu" path="res://weapons/sword/fireWeapon.tres" id="2_2stjv"]
@@ -7,89 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxnwy"]
 size = Vector2(6, 25)
 
-[sub_resource type="Animation" id="Animation_y5ucl"]
-resource_name = "attack_down_to_left"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [3.14159, 4.71239]
-}
-
-[sub_resource type="Animation" id="Animation_4l4ut"]
-resource_name = "attack_down_to_right"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [3.14159, 1.5708]
-}
-
-[sub_resource type="Animation" id="Animation_duwmn"]
-resource_name = "attack_left_to_down"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [4.71239, 3.14159]
-}
-
-[sub_resource type="Animation" id="Animation_lcrpt"]
-resource_name = "attack_left_to_up"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [4.71239, 6.28319]
-}
-
-[sub_resource type="Animation" id="Animation_xllrm"]
-resource_name = "attack_right_to_down"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.5708, 3.14159]
-}
-
 [sub_resource type="Animation" id="Animation_7kkqf"]
 resource_name = "attack_right_to_up"
-length = 0.3
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -97,31 +17,27 @@ tracks/0/path = NodePath("sword:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [3.14159, 0.0]
 }
-
-[sub_resource type="Animation" id="Animation_chrlv"]
-resource_name = "attack_up_to_left"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword/Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, -1.5708]
+"values": [Color(0.870588, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_v36d5"]
 resource_name = "attack_up_to_right"
-length = 0.3
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -129,30 +45,36 @@ tracks/0/path = NodePath("sword:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 3.14159]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword/Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.870588, 0, 0, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wbbah"]
 _data = {
-"attack_down_to_left": SubResource("Animation_y5ucl"),
-"attack_down_to_right": SubResource("Animation_4l4ut"),
-"attack_left_to_down": SubResource("Animation_duwmn"),
-"attack_left_to_up": SubResource("Animation_lcrpt"),
-"attack_right_to_down": SubResource("Animation_xllrm"),
 "attack_right_to_up": SubResource("Animation_7kkqf"),
-"attack_up_to_left": SubResource("Animation_chrlv"),
 "attack_up_to_right": SubResource("Animation_v36d5")
 }
 
 [node name="fireSword" type="Node2D"]
+rotation = -1.5708
 script = ExtResource("1_vqjqq")
 weapon = ExtResource("2_2stjv")
 
 [node name="sword" type="Area2D" parent="."]
-rotation = 3.14159
 
 [node name="Sprite2D" type="Sprite2D" parent="sword"]
 position = Vector2(-1, -17)
@@ -168,5 +90,4 @@ libraries = {
 "": SubResource("AnimationLibrary_wbbah")
 }
 
-[connection signal="area_entered" from="sword" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="sword" to="." method="_on_hitbox_body_entered"]
