@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://w6fw5xxs81b2"]
+[gd_scene load_steps=15 format=3 uid="uid://w6fw5xxs81b2"]
 
 [ext_resource type="Texture2D" uid="uid://c41etdra85swp" path="res://art/environment/survivalgame-terrain-default.png" id="2_7dla6"]
 [ext_resource type="Texture2D" uid="uid://cf0jvabtox23o" path="res://art/environment/survivalgame-terrain-cliffs.png" id="3_uq3kh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cyrerc0ksy4hf" path="res://scenes/stick_collectable.tscn" id="6_gcjx5"]
 [ext_resource type="PackedScene" uid="uid://fkn26vqe1b6x" path="res://scenes/apple_tree.tscn" id="6_sfbg3"]
 [ext_resource type="PackedScene" uid="uid://6ubwcvxuc0l8" path="res://scenes/slime.tscn" id="8_180pl"]
+[ext_resource type="PackedScene" uid="uid://bl0woyiyme4eo" path="res://scenes/doggo.tscn" id="9_adkx5"]
 [ext_resource type="PackedScene" uid="uid://qbqdgk3nq7jp" path="res://scenes/player_engineer.tscn" id="9_nqgwj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_neddb"]
@@ -767,3 +768,6 @@ position = Vector2(174, 91)
 position = Vector2(283, -55)
 
 [node name="playerEngineer" parent="." instance=ExtResource("9_nqgwj")]
+
+[node name="doggo" parent="." instance=ExtResource("9_adkx5")]
+position = Vector2(2, 253)

@@ -47,7 +47,6 @@ func _process(delta):
 func load_weapon():
 	atk_damage = weapon.atk_damage
 	knockback_force = weapon.knockback_force
-	sprite.texture = weapon.weapon_image
 	scale = weapon.scale
 	#scale.x = weapon.size
 func damage():

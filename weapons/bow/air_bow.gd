@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var weapon : Weapons
-var atk_damage : float
+var atk_damage : float = 15.0
 var knockback_force : float
 var isCharging = false
 const arrow: PackedScene = preload("res://weapons/bow/wood_arrow.tscn")
@@ -42,5 +42,6 @@ func animate(attack_direction: Vector2, direction: Vector2) -> void:
 
 func left_attack():
 		var arrow_instance = arrow.instantiate()
+		arrow_instance.bow_damage = atk_damage
 		arrow_instance.global_position = global_position + Vector2 (4, 0)
-		add_child(arrow_instance)
+		get_parent().add_child(arrow_instance)

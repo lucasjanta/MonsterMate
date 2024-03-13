@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3bkfohbvicvt"]
+[gd_scene load_steps=9 format=3 uid="uid://b3bkfohbvicvt"]
 
 [ext_resource type="Script" path="res://weapons/sword/fireSword.gd" id="1_vqjqq"]
 [ext_resource type="Resource" uid="uid://bwxxc6587xuyu" path="res://weapons/sword/fireWeapon.tres" id="2_2stjv"]
@@ -63,10 +63,26 @@ tracks/1/keys = {
 "values": [Color(0.870588, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ya7lk"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword/Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wbbah"]
 _data = {
 "attack_right_to_up": SubResource("Animation_7kkqf"),
-"attack_up_to_right": SubResource("Animation_v36d5")
+"attack_up_to_right": SubResource("Animation_v36d5"),
+"idle": SubResource("Animation_ya7lk")
 }
 
 [node name="fireSword" type="Node2D"]
@@ -78,7 +94,6 @@ weapon = ExtResource("2_2stjv")
 rotation = 3.14159
 
 [node name="Sprite2D" type="Sprite2D" parent="sword"]
-self_modulate = Color(0.870588, 0, 0, 1)
 position = Vector2(-1, -17)
 rotation = -0.785398
 texture = ExtResource("2_axods")
@@ -91,5 +106,6 @@ shape = SubResource("RectangleShape2D_bxnwy")
 libraries = {
 "": SubResource("AnimationLibrary_wbbah")
 }
+autoplay = "idle"
 
 [connection signal="body_entered" from="sword" to="." method="_on_hitbox_body_entered"]

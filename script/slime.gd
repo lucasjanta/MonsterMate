@@ -30,7 +30,7 @@ func _physics_process(delta):
 		
 
 func _on_detection_area_body_entered(body):
-	if body.has_method("player"):
+	if body is Player:
 		player_in_area = true
 		player = body
 
@@ -39,14 +39,6 @@ func _on_detection_area_body_exited(body):
 	if body.has_method("player"):
 		player_in_area = false
 		#player = body
-
-
-func _on_hitbox_area_entered(area):
-	pass
-	#var damage 
-	#if area.has_method("arrow_deal_damage"):
-		#damage = 50
-		#take_damage(damage)
 
 func take_damage(attack: Attack):
 	health -= attack.attack_damage
