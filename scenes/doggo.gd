@@ -13,6 +13,7 @@ var dead
 var player_in_area = false
 var player
 var initial_pos
+
 @onready var fsm = $FSM
 
 func _ready():
@@ -59,4 +60,9 @@ func take_damage(attack: Attack):
 	health -= attack.attack_damage
 	if health <= 0:
 		dead = true
-		fsm.change_state(walk_node, "Death")
+		if fsm.current_state.name == "Attack":
+			fsm.change_state(attack_node, "Death")
+		if fsm.current_state.name == "Walk":
+			fsm.change_state(walk_node, "Death")
+		if fsm.current_state.name == "Idle":
+			fsm.change_state(idle_node, "Death")

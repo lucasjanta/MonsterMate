@@ -553,7 +553,7 @@ animations = [{
 radius = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v3fj"]
-size = Vector2(5, 12)
+size = Vector2(5, 9)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rf6ar"]
 radius = 88.0
@@ -580,9 +580,8 @@ shape = SubResource("CircleShape2D_f2p5h")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(9, 0)
+position = Vector2(9, 1)
 shape = SubResource("RectangleShape2D_1v3fj")
-disabled = true
 
 [node name="detection_area" type="Area2D" parent="."]
 
@@ -602,24 +601,6 @@ script = ExtResource("8_278fl")
 sprite = NodePath("../../AnimatedSprite2D")
 doggo = NodePath("../..")
 
-[node name="Attack" type="Node" parent="FSM" node_paths=PackedStringArray("sprite", "doggo", "hitbox", "hit_collision")]
+[node name="Attack" type="Node" parent="FSM"]
 script = ExtResource("9_6f11k")
-sprite = NodePath("../../AnimatedSprite2D")
-doggo = NodePath("../..")
-hitbox = NodePath("../../hitbox")
-hit_collision = NodePath("../../hitbox/CollisionShape2D")
-
-[node name="Death" type="Node" parent="FSM" node_paths=PackedStringArray("sprite", "doggo")]
-script = ExtResource("11_3r11q")
-sprite = NodePath("../../AnimatedSprite2D")
-doggo = NodePath("../..")
-
-[node name="attack_range" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
-shape = SubResource("CircleShape2D_vll0r")
-
-[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
-[connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
-[connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]
+sprite = Object(AnimatedSprite2D,"_import_path":NodePath(""),"unique_n

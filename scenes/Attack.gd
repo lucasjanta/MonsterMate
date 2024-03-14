@@ -4,25 +4,26 @@ class_name EnemyAttack
 @export var sprite : AnimatedSprite2D
 @export var doggo : CharacterBody2D
 @export var hitbox : Area2D
-var isAttacking : bool
+@export var hit_collision : CollisionShape2D
 
 func Enter():
-	isAttacking = true
+	hit_collision.disabled = false
+	var distance_to_player = doggo.global_position.distance_to(doggo.player.global_position)
 	if sprite.animation.match("walk_left"):
 		sprite.play("attack_left")
-	if sprite.animation.match("walk_up"):
+		hitbox.rotation_degrees = -180
+	elif sprite.animation.match("walk_up"):
 		sprite.play("attack_up")
-	if sprite.animation.match("walk_down"):
+		hitbox.rotation_degrees = -90
+	elif sprite.animation.match("walk_down"):
 		sprite.play("attack_down")
-	if sprite.animation.match("walk_right"):
+		hitbox.rotation_degrees = 90
+	elif sprite.animation.match("walk_right"):
 		sprite.play("attack_right")
+		hitbox.rotation_degrees = 0
 
 func Update(_delta:float):
-	if isAttacking:
-		doggo.position += (doggo.player.position - doggo.position) / (doggo.speed)
-		if sprite.animation_finished:
-			isAttacking = false
-		
+	pass
 	
 func Exit():
-	pass
+	hit_collision.disabled = true
