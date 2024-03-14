@@ -30,7 +30,6 @@ func _process(delta):
 		
 	if isCharging:
 			attackForce += 5 * delta
-			print(attackForce)
 	if isAttacking and side == -1:
 		anim.play("attack_up_to_right")
 		if anim.is_playing():
@@ -69,4 +68,3 @@ func left_attack():
 	
 func animate(attack_direction: Vector2, direction: Vector2) -> void:
 	look_at(direction)
-	print(direction)

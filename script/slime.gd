@@ -63,8 +63,7 @@ func drop_item():
 func _on_hitbox_body_entered(body):
 	if body is Player:
 		damage_player(body)
-		body.position.x = body.position.x - 40
-		move_and_slide()
+		body.position.x = body.position.x - 25
 	
 func damage_player(player):
 	player.health -= attack_dmg
