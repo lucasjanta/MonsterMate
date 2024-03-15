@@ -13,6 +13,8 @@ var dead
 var player_in_area = false
 var player
 var initial_pos
+var isAttacking : bool
+var target_position
 
 @onready var fsm = $FSM
 
@@ -33,6 +35,8 @@ func _physics_process(delta):
 	if dead:
 		$detection_area/CollisionShape2D.disabled = true
 		$CollisionShape2D.disabled = true
+	if isAttacking:
+		position += (target_position - position) / (speed / 4)
 
 
 
@@ -50,6 +54,8 @@ func _on_detection_area_body_exited(body):
 func _on_attack_range_body_entered(body):
 	if body is Player:
 		fsm.change_state(walk_node, "Attack")
+		target_position = body.position
+		isAttacking = true
 		
 
 func _on_attack_range_body_exited(body):

@@ -23,7 +23,9 @@ func Enter():
 		hitbox.rotation_degrees = 0
 
 func Update(_delta:float):
-	pass
+		if !sprite.is_playing():
+			doggo.isAttacking = false
 	
 func Exit():
 	hit_collision.disabled = true
+	doggo.isAttacking = false

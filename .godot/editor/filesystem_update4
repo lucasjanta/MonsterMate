@@ -1,13 +1,11 @@
-res://scenes/doggo.tscn
+res://scenes/world.tscn
 res://script/apple_tree.gd
 res://inventory/player_inv.tres
-res://scenes/Attack.gd
-res://scenes/world.tscn
 res://scenes/player_engineer.tscn
 res://scenes/state_machine.tscn
 res://scenes/slime.tscn
+res://scenes/doggo.tscn
 res://weapons/bow/wood_arrow.tscn
 res://weapons/sword/fire_sword.tscn
 res://scenes/doggo.gd
-res://scenes/Walk.gd
-res://scenes/Death.gd
+res://scenes/Attack.gd
